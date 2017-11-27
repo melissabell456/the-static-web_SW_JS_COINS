@@ -12,33 +12,40 @@ console.log("test");
 
 */
 
-// function coinCounter (totalAmount) {
-//     // Initialize a JavaScript object to hold the coins
-//     var coinPurse = {
-//         quarters: 4,
-//         dimes: 10,
-//         nickels: 20,
-//         pennies: 100
-//     };
-//     var totalAmount;
-//     var totalQuarters = (totalAmount / .25) - (totalAmount % .25);
-//     var totalDimes = 
-//     var totalNicks = 
-//     var totalPennies = 
+function coinCounter (dollarAmount) {
+    // Initialize a JavaScript object to hold the coins
+    var coinPurse = {
+        quarters: 4,
+        dimes: 10,
+        nickels: 20,
+        pennies: 100
+    };
+    var dollarAmount;
+    var quarters = Math.floor(dollarAmount / .25);
+    var leftoverFromPrevious = dollarAmount % .25; 
+    var dimes = Math.floor(leftoverFromPrevious / .10);
+    leftoverFromPrevious = leftoverFromPrevious % .10; 
+    var nickels = Math.floor(leftoverFromPrevious / .05);
+    leftoverFromPrevious = leftoverFromPrevious % .05;
+    var pennies = Math.ceil(leftoverFromPrevious / .01);
+    // leftoverFromPrevious = leftoverFromPrevious % .01;
 
-//     coinPurse.quarters = totalQuarters;
-//     coinPurse.dimes = totalDimes;
-//     coinPurse.nickels = totalNicks;
-//     coinPurse.pennies = totalPennies;
+    coinPurse.quarters = quarters;
+    coinPurse.dimes = dimes;
+    coinPurse.nickels = nickels;
+    coinPurse.pennies = pennies;
     
-//     return coinPurse;
-// }
+    console.log("test2");
+    console.log("Coins present:" + " " + "Quarters:" + " " + coinPurse.quarters + " " + "Dimes:" + " " + coinPurse.dimes + " " + "Nickels:" + " " + coinPurse.nickels + " " + "Pennies:" + " " + coinPurse.pennies);
+    return coinPurse;
+  };
+  
+  coinCounter(10.00);
 
-// coinCounter(20.00);
-//   console.log("Coins present:" + " " + coins);
+  // calculation ideas
+// var totalAmount = 1.55;
+// var totalQuarters = totalAmount / .25;
+// var leftovers =  totalAmount % .25;
+// console.log(totalQuarters - leftovers);
+// console.log(leftovers);
 
-var totalAmount = 1.55;
-var totalQuarters = totalAmount / .25;
-var leftovers =  totalAmount % .25;
-console.log(totalQuarters - leftovers);
-console.log(leftovers);
